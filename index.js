@@ -5,7 +5,7 @@ module.exports = function (config) {
     // config validation
     if (!config) throw new Error("'config' object is missing.");
 
-    if (typeof(config.maxSize) !== 'number' || config.maxSize &lt; 0) {
+    if (typeof(config.maxSize) !== 'number' || config.maxSize < 0) {
         throw new Error("configuration.maxSize must be a positive number.");
     }
     // instance variables initialization
