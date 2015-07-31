@@ -47,9 +47,10 @@ module.exports = function (config) {
             callback(null, data);
         });
         */
-        x('http://google.com', [{
-            'title' : 'title'
-        }])(function(err, data) {
+        x('http://google.com', {
+            main: 'title',
+            image: x('#gbar a@href', 'title')
+        })(function(err, data) {
             if (!err) {
                 callback(null, data);
             } else {
