@@ -50,7 +50,11 @@ module.exports = function (config) {
         xray('http://google.com', [{
             'title' : 'title'
         }])(function(err, data) {
-            callback(null, data);
+            if (!err) {
+                callback(null, data);
+            } else {
+                callback(new Error(err));
+            }
         })
     };
 };
