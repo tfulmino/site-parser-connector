@@ -1,6 +1,10 @@
+var Xray = require('x-ray');
+
 // This module exports a constructor function with a parameter for configuration.
 // The 'config' parameter will hold an object instance containing all configuration values defined for this connector.
 module.exports = function (config) {
+
+    var x = Xray();
 
     // config validation
     if (!config) throw new Error("'config' object is missing.");
