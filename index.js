@@ -47,7 +47,7 @@ module.exports = function (config) {
             callback(null, data);
         });
         */
-        xray('http://google.com', [{
+        x('http://google.com', [{
             'title' : 'title'
         }])(function(err, data) {
             if (!err) {
