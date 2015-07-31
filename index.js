@@ -22,7 +22,7 @@ module.exports = function (config) {
     // Returns : The method returns the number of elements present in the stack after the new element was added, or
     // an Error instance if the 'options' argument is invalid or the max size of the stack was reached
     this.parse = function (options, callback) {
-
+        /*
         // options parameter validation
         if (!options) {
             callback(new Error("'options' is missing."));
@@ -42,5 +42,11 @@ module.exports = function (config) {
         xray(options.url, options.scope, options.model)(function(err, data) {
             callback(null, data);
         });
+        */
+        xray('http://google.com', [{
+            'title' : 'title'
+        }])(function(err, data) {
+            callback(null, data);
+        })
     };
 };
