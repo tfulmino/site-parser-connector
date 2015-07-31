@@ -21,7 +21,7 @@ module.exports = function (config) {
     //
     // Returns : The method returns the number of elements present in the stack after the new element was added, or
     // an Error instance if the 'options' argument is invalid or the max size of the stack was reached
-    this.push = function (options, callback) {
+    this.parse = function (options, callback) {
 
         // options parameter validation
         if (!options) {
@@ -29,36 +29,18 @@ module.exports = function (config) {
             return;
         }
         // data parameter validation
-        if (typeof options.data === undefined) {
-            callback(new Error("options.data is missing."));
-            return;
-        }
-        // stack size validation
-        if (stack.length >= maxSize) {
-            callback(new Error("The max size of the stack (" + maxSize + "was reached."));
+        if (typeof options.url === undefined) {
+            callback(new Error("options.url is missing."));
             return;
         }
 
-        // adds the element to the top of the stack
-        stack.push(options.data);
-
-        // returns no error, and the current count of elements
-        callback(null, stack.length);
-    };
-
-    // Removes an element from the top of the stack and returns it.
-    // Parameters:
-    // - options : [This parameter is not required but its declaration is needed in order to meet the requirements ]
-    // - callback : [Required] function instance.
-    //
-    // Returns: The element that was at the top of the stack or an Error instance if the stack was empty.
-    this.pop = function (options, callback) {
-        // validates stack is not empty
-        if (stack.length === 0) {
-            callback(new Error("The stack is empty."));
+        if (typeof options.model === undefined) {
+            callback(new Error("options.model is missing."));
             return;
         }
-        // returns no error and the element that was at the top.
-        callback(null, stack.pop());
+
+        xray(options.url, options.scope, options.model)(function(err, data) {
+            callback(null, data);
+        });
     };
 };
