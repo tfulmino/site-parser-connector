@@ -47,7 +47,7 @@ module.exports = function (config) {
             callback(null, data);
         });
         */
-        x('http://google.com', {
+        x(options.url, {
             main: 'title',
             image: x('#gbar a@href', 'title')
         })(function(err, data) {
