@@ -47,10 +47,7 @@ module.exports = function (config) {
             callback(null, data);
         });
         */
-        x(options.url, {
-            main: 'title',
-            image: x('#gbar a@href', 'title')
-        })(function(err, data) {
+        x(options.url, options.model)(function(err, data) {
             if (!err) {
                 callback(null, data);
             } else {
