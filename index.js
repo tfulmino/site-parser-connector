@@ -34,7 +34,7 @@ module.exports = function (config) {
             return;
         }
         // stack size validation
-        if (stack.length &gt;= maxSize) {
+        if (stack.length >= maxSize) {
             callback(new Error("The max size of the stack (" + maxSize + "was reached."));
             return;
         }
